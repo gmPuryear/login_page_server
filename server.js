@@ -22,42 +22,42 @@
 //
 // app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-// bringing in express
-const express = require("express")
-const mongo = require("mongodb")
+
+const express = require("express"); // bringing in express
+const mongo = require("mongodb");
+const connectDB = require('./config/db');
 
 // initialize app variable with express
 const app = express()
 
 // DATABASE
-
-const connectDB = async () => {
-    const client = new mongo.MongoClient(
-        "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority"
-    )
-    try {
-        client.connect()
-        console.log("\n🟢 Database connected.")
-    } catch (err) {
-        await client.close()
-        throw new Error("❌ Database connection error.")
-    }
-}
-
+// const connectDB = async () => {
+//     const client = new mongo.MongoClient(
+//         "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority"
+//     )
+//     try {
+//         client.connect()
+//         console.log("\n🟢 Database connected.")
+//     } catch (err) {
+//         await client.close()
+//         throw new Error("❌ Database connection error.")
+//     }
+// }
+// connect database
 connectDB();
 
 // simple get request and sends data to browser "API RUNNING"
 app.get("/", (req, res) => res.send("API RUNNING"));
 
 // Init Middleware (allows us to get the data in response.body)
-app.use(express.json({extended: false}));
+// app.use(express.json({extended: false}));
 
 
 // Define Routes
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/posts', require('./routes/api/posts'));
+// app.use('/api/users', require('./routes/api/users'));
+// app.use('/api/auth', require('./routes/api/auth'));
+// app.use('/api/profile', require('./routes/api/profile'));
+// app.use('/api/posts', require('./routes/api/posts'));
 
 // looks for environment variable called PORT to use when we deploy to heroku. If no environment set it will default to 5000
 const PORT = process.env.PORT || 6060
