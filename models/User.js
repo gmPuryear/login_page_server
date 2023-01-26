@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    name : {
+    firstName : {
         type: String,
-        required: true,
+    },
+    lastName: {
+        type: String,
     },
     email: {
         type: String,
@@ -19,8 +21,8 @@ const UserSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now // this will set the time automatically for the date and time
     }
 });
 
-module.exports = User = mongoose.model('user', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema); // 'user' is model name

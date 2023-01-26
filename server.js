@@ -30,34 +30,21 @@ const connectDB = require('./config/db');
 // initialize app variable with express
 const app = express()
 
-// DATABASE
-// const connectDB = async () => {
-//     const client = new mongo.MongoClient(
-//         "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority"
-//     )
-//     try {
-//         client.connect()
-//         console.log("\n🟢 Database connected.")
-//     } catch (err) {
-//         await client.close()
-//         throw new Error("❌ Database connection error.")
-//     }
-// }
-// connect database
+
 connectDB();
 
 // simple get request and sends data to browser "API RUNNING"
-app.get("/", (req, res) => res.send("API RUNNING"));
-
-// Init Middleware (allows us to get the data in response.body)
-// app.use(express.json({extended: false}));
+// app.get("/", (req, res) => res.send("API RUNNING"));
 
 
-// Define Routes
-// app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/auth', require('./routes/api/auth'));
-// app.use('/api/profile', require('./routes/api/profile'));
-// app.use('/api/posts', require('./routes/api/posts'));
+app.use(express.json({extended: false})) // Initializing middlware that allows us to get the data in req.body
+
+
+// Define Routes so that we can actually ACCESS the routes
+app.use('/api/users', require('./routes/api/users')); // '/api/users' route pertains to the route in users.js. so you can make the .use('route name here', ...) can be anything
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
 
 // looks for environment variable called PORT to use when we deploy to heroku. If no environment set it will default to 5000
 const PORT = process.env.PORT || 6060
