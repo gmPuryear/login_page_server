@@ -39,7 +39,6 @@ router.post('/',
         try {
             // If user exists, send error
             let user = await User.findOne({email}); // Returns Bool.The findOne() method returns the value of the first element that passes a test.
-            console.log(user);
             if (user) {
                 res.status(400).json({errors: [{msg: "User already exists"}]})
             }

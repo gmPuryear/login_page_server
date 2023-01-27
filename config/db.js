@@ -23,10 +23,11 @@ const db = config.get("mongoURI"); // gets whatever from whatever is in the defa
 
 const connectDB = async () => {
     const client = new mongo.MongoClient(
-        db // MongoDB URI from db.js file
+        // "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority"
+        db // MongoDB URI from default json file
     )
     try {
-        client.connect()
+        await client.connect()
         console.log("\n🟢 Database connected.")
     } catch (err) {
         await client.close()
