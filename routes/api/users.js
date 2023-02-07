@@ -10,9 +10,12 @@ const {check, validationResult, body} = require('express-validator'); // this is
 // @route:        POST api/users
 // @description:  Register user
 // @access value: Public (means if you need a token to access a specific route. Do you need to be authenticated? We dont need a token for this route)
-// router.get('/', (req, res) =>
-//     res.send("User Route")
-// );
+
+// vv DO NOT USE ONCE DEPLOYED vv
+var cors = require('cors');
+router.use(cors());
+
+
 
 // *** Middleware has the access to the request object, responses object, and next, it can process the request before the
 // server send a response. An Express-based application is a series of middleware function calls ***
