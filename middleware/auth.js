@@ -1,12 +1,16 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
+// *** This is customn middleware used to verify the JSON web token that comes from the client and authenticate our users ***
+
 // exporting middleware function that takes in 3 things which is that has access to request and response objects. Next is a callback
 // is what we have to run to go on to next piece of middleware
 
 module.exports = function (req, res, next) {
 
     // Get token from header
+    console.log(req);
+
     const token = req.header('x-auth-token');
 
     // check if no token at all and route is protected

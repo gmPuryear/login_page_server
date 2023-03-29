@@ -34,10 +34,10 @@ router.post('/',
     ],
 
     async (req, res) => {
-        console.log(req.body); // in order for this to work and receive the POST info, we need to initialize the middleware in server.js
+        // console.log(req.body); // in order for this to work and receive the POST info, we need to initialize the middleware in server.js
         const errors = validationResult(req);
-        if (!errors.isEmpty()) { // if there are errors, send 400 status and the error array
-            return res.status(400).json({errors: errors.array()});
+        if (!errors.isEmpty()) { // if there are errors,
+            return res.status(400).json({errors: errors.array()}); //send 400 status and the error array
         }
 
         const {firstName, lastName, email, password} = req.body; // destructure response body so dont have to do req.body... all the time
@@ -65,9 +65,9 @@ router.post('/',
                 });
 
             // *** HASH PASSWORD ***
-            // ** Anything that returns a promise you make sure to put await. If not using async, await you would use the .thens
+            // ** Anything  that returns a promise you make sure to put await. If not using async, await you would use the .thens
             // encrypt password using bcrypt
-            const salt = await bcrypt.genSalt(10); // the higher the number the more secure but higher = slower
+            const salt = await bcrypt.genSalt(10); // the higher the number the more secure but higher = slower. Salt is just a random string that is genera
 
             user.password = await bcrypt.hash(password, salt) // creates a hash and puts it into user password. We get a promise from bcrypt gen salt
 
@@ -83,7 +83,7 @@ router.post('/',
                 }
             }
             // *** Sign token, pass in payload, pass in secret, pass in expire time, then get error or token,
-            // If no error then send toekn to client ***
+            // If no error then send token to client ***
             jwt.sign(
                 payload,
                 config.get('jwtSecret'),

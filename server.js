@@ -1,28 +1,3 @@
-// // bringing in express
-// const express = require('express');
-// const {connectDb} = require("./config/index");
-// const mongo = require("mongodb")
-// const {config} = require("dotenv");
-//
-// // initialize app variable with express
-// const app = express();
-//
-// // DATABASE
-// connectDb(config.MONGO_URI, app)
-// // const PORT = 6060;
-//
-// // connect database
-// // connectDB();
-//
-// // simple get request and sends data to browser "API RUNNING"
-// app.get('/', (req, res) => res.send('API RUNNING'));
-//
-// // looks for environment variable called PORT to use when we deploy to heroku. If no environment set it will default to 5000
-// const PORT = process.env.PORT || 6060;
-//
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-
 const express = require("express"); // bringing in express
 const mongo = require("mongodb");
 const connectDB = require('./config/db');
@@ -46,7 +21,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
-// looks for environment variable called PORT to use when we deploy to heroku. If no environment set it will default to 5000
+// looks for environment variable called PORT to use when we deploy to heroku. If no environment set it will default to 6060
 const PORT = process.env.PORT || 6060
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

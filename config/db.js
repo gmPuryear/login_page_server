@@ -19,20 +19,4 @@ const connectDB = async () => {
     }
 }
 
-// ---------------- BUT THIS ONE DID --------------
-
-// const connectDB = async () => {
-//     const client = new mongo.MongoClient(
-//         // "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority"
-//         db // MongoDB URI from default json file
-//     )
-//     try {
-//         await client.connect()
-//         console.log("\n🟢 Database connected.")
-//     } catch (err) {
-//         await client.close()
-//         throw new Error("❌ Database connection error.")
-//     }
-// }
-
 module.exports = connectDB;
