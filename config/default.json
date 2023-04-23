@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://adminUser:gjFjsAFhRgT9qT6h@loginpagepractice.oqqo8jo.mongodb.net/login_credentials?retryWrites=true&w=majority",
   "jwtSecret": "mySecretToken"
 }
 

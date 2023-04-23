@@ -8,6 +8,11 @@ const {check, validationResult, body} = require('express-validator');
 const gravatar = require('gravatar'); // this is from the express-validator docs
 const bcrypt = require('bcryptjs');
 
+// vv DO NOT USE ONCE DEPLOYED vv
+var cors = require('cors');
+router.use(cors());
+
+// *** This GET route is to get the user and make sure the user is validated, otherwise it will clear out the token and the object ***
 //@route:         GET api/auth
 // @description:  Test Route
 // @access value: Public (means if you need a token to access a specific route. Do you need to be authenticated? We dont need a token for this route)
@@ -76,7 +81,7 @@ router.post(
             jwt.sign(
                 payload,
                 config.get('jwtSecret'),
-                {expiresIn: 360000}, // when deploying change this expire back to 1 hour (3600 seconds)
+                // {expiresIn: 36000}, // when deploying change this expire back to 1 hour (3600 seconds)
                 (err, token) => {
                     if (err) throw err;
                     res.json({token});
