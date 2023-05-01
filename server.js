@@ -6,7 +6,7 @@ var cors = require('cors');
 // initialize app variable with express
 const app = express()
 app.use(cors({
-    origin: 'https://login-page-frontend-gp.herokuapp.com/'
+    origin: 'https://login-page-frontend-gp.herokuapp.com'
   }));
 
 connectDB();
