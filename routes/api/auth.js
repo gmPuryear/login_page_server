@@ -38,6 +38,7 @@ router.get('/', auth, async (req, res) => {
 // @access value: Public because we want to get the token to find the routes
 router.post(
     '/',
+    cors(corsOptions),
     [
         check('email',
             "Please include a valid email")

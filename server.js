@@ -5,7 +5,12 @@ var cors = require('cors');
 
 // initialize app variable with express
 const app = express()
-app.use(cors());
+// app.use(cors());
+
+const corsOptions = {
+    origin: 'https://login-page-frontend-gp.herokuapp.com/',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
 
 connectDB();
