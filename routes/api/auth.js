@@ -7,7 +7,7 @@ const config = require('config');
 const {check, validationResult, body} = require('express-validator');
 const gravatar = require('gravatar'); // this is from the express-validator docs
 const bcrypt = require('bcryptjs');
-const cors = require('cors');›
+const cors = require('cors');
 
 // vv DO NOT USE ONCE DEPLOYED vv
 // var cors = require('cors');
