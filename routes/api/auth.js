@@ -7,12 +7,11 @@ const config = require('config');
 const {check, validationResult, body} = require('express-validator');
 const gravatar = require('gravatar'); // this is from the express-validator docs
 const bcrypt = require('bcryptjs');
+const cors = require('cors');
 
 // vv DO NOT USE ONCE DEPLOYED vv
 // var cors = require('cors');
 // router.use(cors());
-
-const cors = require('cors');
 
 app.use(cors({
     origin: 'https://login-page-frontend-gp.herokuapp.com'
