@@ -1,9 +1,11 @@
 const express = require("express"); // bringing in express
 const mongo = require("mongodb");
 const connectDB = require('./config/db');
+var cors = require('cors');
 
 // initialize app variable with express
 const app = express()
+app.use(cors());
 
 
 connectDB();
