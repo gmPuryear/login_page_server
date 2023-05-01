@@ -15,7 +15,7 @@ const bcrypt = require('bcryptjs');
 const cors = require('cors');
 
 app.use(cors({
-    origin: 'https://login-page-frontend-gp.herokuapp.com/'
+    origin: 'https://login-page-frontend-gp.herokuapp.com'
 }));
 
 // *** This GET route is to get the user and make sure the user is validated, otherwise it will clear out the token and the object ***
