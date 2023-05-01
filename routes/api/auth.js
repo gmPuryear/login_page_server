@@ -21,7 +21,7 @@ const cors = require('cors');
 //@route:         GET api/auth
 // @description:  Test Route
 // @access value: Public (means if you need a token to access a specific route. Do you need to be authenticated? We dont need a token for this route)
-router.get('/', auth, async (req, res) => {
+router.get('/',auth, async (req, res) => {
     try {
         // console.log(req);
         const user = await User.findById(req.user.id).select('-password') // '-password' leaves off the password in the data
@@ -38,7 +38,6 @@ router.get('/', auth, async (req, res) => {
 // @access value: Public because we want to get the token to find the routes
 router.post(
     '/',
-    cors(corsOptions),
     [
         check('email',
             "Please include a valid email")
