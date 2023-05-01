@@ -8,14 +8,15 @@ const {check, validationResult, body} = require('express-validator');
 const gravatar = require('gravatar'); // this is from the express-validator docs
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const app = express();
 
 // vv DO NOT USE ONCE DEPLOYED vv
 // var cors = require('cors');
 // router.use(cors());
 
-// app.use(cors({
-//     origin: 'https://login-page-frontend-gp.herokuapp.com'
-// }));
+app.use(cors({
+    origin: 'https://login-page-frontend-gp.herokuapp.com'
+}));
 
 // *** This GET route is to get the user and make sure the user is validated, otherwise it will clear out the token and the object ***
 //@route:         GET api/auth
